@@ -19,7 +19,7 @@ public class DirectSender {
         // 消息内容
         String message = "hello word!";
         // 定义了交换机后，消息优先发布到交换机
-        channel.basicPublish(EXCHANGE_NAME,"delete",null,message.getBytes());
+        channel.basicPublish(EXCHANGE_NAME,"update",null,message.getBytes());
         // 消息中间件
         System.out.println(DirectSender.class.getSimpleName() + "发送了消息: " + message);
         channel.close();

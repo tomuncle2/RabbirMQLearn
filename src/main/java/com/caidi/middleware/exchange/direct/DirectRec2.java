@@ -1,6 +1,5 @@
 package com.caidi.middleware.exchange.direct;
 
-import com.caidi.middleware.exchange.fanout.FanoutRec1;
 import com.caidi.middleware.utils.ConnectionUtils;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -17,16 +16,18 @@ public class DirectRec2 {
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
         // 绑定队列到交换机
-        channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"key2");
+        channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"update");
+        channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"insert");
+        channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"delete");
         // 同一时刻服务器只会发一条消息给消费者
         channel.basicQos(1);
 
         // 定义队列的消费者
         QueueingConsumer queueingConsumer = new QueueingConsumer(channel);
-        // 监听队列
-        channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"update");
-        channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"insert");
-        channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"delete");
+
+        // 监听队列(将消费者和队列绑定到一起)
+        channel.basicConsume(QUEUE_NAME,false,queueingConsumer);
+
 
         while(true){
             // 类似迭代器
