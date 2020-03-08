@@ -1,2 +1,3 @@
 RabbitMQLearn
 学习RabbitMq
+基于java版rabbitmq驱动
