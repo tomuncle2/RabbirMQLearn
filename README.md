@@ -1,1 +1,2 @@
-RabbirMQLearn
+RabbitMQLearn
+学习RabbitMq
