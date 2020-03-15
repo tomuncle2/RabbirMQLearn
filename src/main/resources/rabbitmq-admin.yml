@@ -1,0 +1,30 @@
+spring:
+  rabbitmq:
+    # 连接地址：
+    host: localhost
+    # 端口：
+    port: 5672
+    # 账号1
+    user1:
+      # 用户名：
+      userName: taotao
+      # 密码：
+      password: 123456
+      # 虚拟地址：
+      virtual_host: /taotao
+    # 账号2
+    user2:
+      # 用户名：
+      userName: admin
+      # 密码：
+      password: admin
+      # 虚拟地址：
+      virtual_host:
+    # 账号3
+    user3:
+      # 用户名：
+      userName: guest
+      # 密码：
+      password: guest
+      # 虚拟地址：
+      virtual_host: /test

@@ -15,7 +15,7 @@ public class DirectRec2 {
         // 声明队列
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
-        // 绑定队列到交换机
+        // 绑定队列到交换机 binding
         channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"update");
         channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"insert");
         channel.queueBind(QUEUE_NAME,EXCHANGE_NAME,"delete");

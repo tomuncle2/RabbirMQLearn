@@ -8,14 +8,13 @@ import java.io.IOException;
  * 获取rabbitmq连接对象
  * */
 public class ConnectionUtils  {
+
     /***
      * rabbitmq管理页面账号 host(虚拟主机)相当于mysql数据库
      * * 1.guest guest  host:/test
      * 2.admin 123456 host:/
      * 3.taotao 123456 host:/taotao
      */
-
-
     private static final String HOST = "localhost";
     private static final String USERNAME = "taotao";
     
